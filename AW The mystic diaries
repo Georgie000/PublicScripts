@@ -1,0 +1,565 @@
+local GAME = "The Mystic Diaries"
+local GUI = game.CoreGui:FindFirstChild("ScreenGui")
+if GUI then
+    GUI:Destroy()
+end
+local plr = game.Players.LocalPlayer
+local cha = plr.Character
+local Rep = game:GetService("ReplicatedStorage")
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/HeartTheBoi/BroSki-Repo/main/Gamer%20Lib%20Gui%20Hub"))();
+local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/HeartTheBoi/BroSki-Repo/main/Notify%201"))()
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/HeartTheBoi/BroSki-Repo/main/Notify%202"))()
+Notification:Notify(
+   {Title = "ate Notification", Description = GAME.." Loaded"},
+   {OutlineColor = Color3.fromRGB(249, 233, 153),Time = 5, Type = "image"},
+   {Image = "http://www.roblox.com/asset/?id=6023426923", ImageColor = Color3.fromRGB(255, 84, 84)}
+)
+local Misc = library:CreateSection("Misc");
+local Keys = library:CreateSection("Keybinds");
+local Spells = library:CreateSection("Custom Spells");
+local Teleport = library:CreateSection("Teleport");
+local Creds = library:CreateSection("Credits");
+Misc:Toggle("Magic Farm",function(B)
+	_G.AUTOFARM = B
+	while _G.AUTOFARM == true do
+		local plr = game.Players.LocalPlayer
+		for i, Player in pairs (game.Players:GetPlayers()) do
+			if Player.Character ~= nil and Player ~= plr then
+				local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+				if mag < 999999 then
+					local Target = Player.Character or Player.CharacterAdded:Wait()
+					local args = {
+						[1] = "channel",
+						[2] = Target.Head,
+						[3] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+						[4] = game:GetService("Players").LocalPlayer.Character.Humanoid
+					}
+					
+					game:GetService("ReplicatedStorage").REMOTES.Spell:FireServer(unpack(args))					
+				end
+			end
+		end
+		wait()
+	end
+end)
+Misc:Toggle("Server Lag/Chaos",function(G)
+	_G.SUPER = G
+	while _G.SUPER == true do
+		local plr = game.Players.LocalPlayer
+		for i, Player in pairs (game.Players:GetPlayers()) do
+			if Player.Character ~= nil and Player ~= plr then
+				local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+				if mag < 999999 then
+					local Target = Player.Character or Player.CharacterAdded:Wait()
+					local args = {
+						[1] = "feed",
+						[2] = game:GetService("Players").LocalPlayer.Character.Humanoid,
+						[3] = game:GetService("Players").LocalPlayer.Character,
+						[4] = Target.Head
+					}
+					
+					game:GetService("ReplicatedStorage").REMOTES.Key:FireServer(unpack(args))							
+				end
+			end
+		end
+		local plr = game.Players.LocalPlayer
+		for i, Player in pairs (game.Players:GetPlayers()) do
+			if Player.Character ~= nil and Player ~= plr then
+				local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+				if mag < 999999 then
+					local Target = Player.Character or Player.CharacterAdded:Wait()
+					local args = {
+						[1] = "delfan",
+						[2] = Target.Head,
+						[3] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+						[4] = game:GetService("Players").LocalPlayer.Character.Humanoid,
+						[5] = Target.HumanoidRootPart.CFrame
+					}
+					
+					game:GetService("ReplicatedStorage").REMOTES.Spell:FireServer(unpack(args))	
+				end
+			end
+		end
+		local plr = game.Players.LocalPlayer
+		for i, Player in pairs (game.Players:GetPlayers()) do
+			if Player.Character ~= nil and Player ~= plr then
+				local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+				if mag < 999999 then
+					local Target = Player.Character or Player.CharacterAdded:Wait()
+					local args = {
+						[1] = "push",
+						[2] = game:GetService("Players").LocalPlayer.Character.Humanoid,
+						[3] = game:GetService("Players").LocalPlayer.Character,
+						[4] = Target.Head
+					}
+					
+					game:GetService("ReplicatedStorage").REMOTES.Key:FireServer(unpack(args))									
+				end
+			end
+		end
+		wait()
+	end
+end)
+Misc:Toggle("Spam Push All",function(C)
+	_G.AUTOFARM = C
+	while _G.AUTOFARM == true do
+		local plr = game.Players.LocalPlayer
+		for i, Player in pairs (game.Players:GetPlayers()) do
+			if Player.Character ~= nil and Player ~= plr then
+				local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+				if mag < 999999 then
+					local Target = Player.Character or Player.CharacterAdded:Wait()
+					local args = {
+						[1] = "push",
+						[2] = game:GetService("Players").LocalPlayer.Character.Humanoid,
+						[3] = game:GetService("Players").LocalPlayer.Character,
+						[4] = Target.Head
+					}
+					
+					game:GetService("ReplicatedStorage").REMOTES.Key:FireServer(unpack(args))									
+				end
+			end
+		end
+		wait()
+	end
+end)
+Misc:Toggle("Auto Farm Coins",function(F)
+	cha.HumanoidRootPart.CFrame = CFrame.new(-307, 1, -213)
+	_G.SPAM = F
+	while _G.SPAM == true do
+		local plr = game.Players.LocalPlayer
+		for i, Player in pairs (game.Players:GetPlayers()) do
+			if Player.Character ~= nil and Player ~= plr then
+				local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+				if mag < 999999 then
+					local Target = Player.Character or Player.CharacterAdded:Wait()
+					local args = {
+						[1] = "delfan",
+						[2] = Target.Head,
+						[3] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+						[4] = game:GetService("Players").LocalPlayer.Character.Humanoid,
+						[5] = Target.HumanoidRootPart.CFrame
+					}
+					
+					game:GetService("ReplicatedStorage").REMOTES.Spell:FireServer(unpack(args))	
+				end
+			end
+		end
+		wait()
+	end
+end)
+Misc:Toggle("SuperFeed On All",function(D)
+	_G.SUPER = D
+	while _G.SUPER == true do
+		local plr = game.Players.LocalPlayer
+		for i, Player in pairs (game.Players:GetPlayers()) do
+			if Player.Character ~= nil and Player ~= plr then
+				local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+				if mag < 999999 then
+					local Target = Player.Character or Player.CharacterAdded:Wait()
+					local args = {
+						[1] = "feed",
+						[2] = game:GetService("Players").LocalPlayer.Character.Humanoid,
+						[3] = game:GetService("Players").LocalPlayer.Character,
+						[4] = Target.Head
+					}
+					
+					game:GetService("ReplicatedStorage").REMOTES.Key:FireServer(unpack(args))							
+				end
+			end
+		end
+		wait()
+	end
+end)
+Misc:Toggle("Anti Annoying",function(E)
+	_G.ANTIA = a
+	while _G.ANTIA == true do
+		game:GetService("ReplicatedStorage").RagdollHandler:Destroy()
+		game:GetService("ReplicatedStorage").CameraShaker:Destroy()
+		game.Lighting.Blur:Remove()
+		wait()
+	end
+end)
+Misc:Button("Respawn Gui",function()
+	loadstring(game:HttpGet(('https://raw.githubusercontent.com/BoiDiandre/TheLua/main/THE%20FLOPPY%20TM'),true))()
+end)
+Misc:Button("Infinte Yeild",function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+end)
+Misc:Button("Custom Cmds",function()
+	Notification:Notify(
+		{Title = "ate", Description = "CMDS are !turn !unturn !respawn !siphon all"},
+		{OutlineColor = Color3.fromRGB(249, 233, 153),Time = 30, Type = "image"},
+		{Image = "http://www.roblox.com/asset/?id=6023426923", ImageColor = Color3.fromRGB(255, 84, 84)}
+	 )
+	local Player = game.Players.LocalPlayer
+	local Character = Player.Character
+	local Rep = game:GetService("ReplicatedStorage")
+	local Debounce = true
+	local db = true
+
+	Player.Chatted:Connect(function(chat)
+		local low = string.lower(chat)
+		if string.find(low, "!turn") then
+			local args = {
+				[1] = "trans",
+				[2] = game:GetService("Players").LocalPlayer.Character.Humanoid,
+				[3] = game:GetService("Players").LocalPlayer.Character
+			}
+			
+			game:GetService("ReplicatedStorage").REMOTES.Key:FireServer(unpack(args))        
+		end
+	end)
+	Player.Chatted:Connect(function(chat)
+		local low = string.lower(chat)
+		if string.find(low, "!unturn") then
+			local args = {
+				[1] = "detrans",
+				[2] = game:GetService("Players").LocalPlayer.Character.Humanoid,
+				[3] = game:GetService("Players").LocalPlayer.Character
+			}
+			
+			game:GetService("ReplicatedStorage").REMOTES.Key:FireServer(unpack(args))        
+		end
+	end)
+	Player.Chatted:Connect(function(chat)
+		local low = string.lower(chat)
+		if string.find(low, "!respawn") then
+			game:GetService("Players").LocalPlayer.PlayerGui.Back.TextButton.LocalScript.Death:FireServer()  
+		end
+	end)
+	Player.Chatted:Connect(function(chat)
+		local low = string.lower(chat)
+		if string.find(low, "!siphon all") then
+			local plr = game.Players.LocalPlayer
+			for i, Player in pairs (game.Players:GetPlayers()) do
+				if Player.Character ~= nil and Player ~= plr then
+					local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+					if mag < 999999 then
+						local Target = Player.Character or Player.CharacterAdded:Wait()
+						local args = {
+							[1] = "siphon_other",
+							[2] = game:GetService("Players").LocalPlayer.Character.Humanoid,
+							[3] = game:GetService("Players").LocalPlayer.Character,
+							[4] = Target.Head
+						}
+						
+						game:GetService("ReplicatedStorage").REMOTES.Key:FireServer(unpack(args))          
+					end
+				end
+			end     
+		end
+	end)
+
+end)
+Misc:Button("Curse",function()
+	local args = {
+		[1] = "curse",
+		[2] = plr.Character,
+		[3] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+		[4] = game:GetService("Players").LocalPlayer.Character.Humanoid,
+		[5] = pos
+	}
+	
+	game:GetService("ReplicatedStorage").REMOTES.Spell:FireServer(unpack(args))
+end)
+Misc:Button("Respawn",function()
+	game:GetService("Players").LocalPlayer.PlayerGui.Back.TextButton.LocalScript.Death:FireServer()
+end)
+Misc:Button("Disabled All Rings",function()
+	local plr = game.Players.LocalPlayer
+	for i, Player in pairs (game.Players:GetPlayers()) do
+		if Player.Character ~= nil and Player ~= plr then
+			local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+			if mag < 999999 then
+				local Target = Player.Character or Player.CharacterAdded:Wait()
+				local args = {
+					[1] = "disablering",
+					[2] = Target.Head,
+					[3] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+					[4] = game:GetService("Players").LocalPlayer.Character.Humanoid,
+					[5] = Target.HumanoidRootPart.CFrame
+				}
+				
+				game:GetService("ReplicatedStorage").REMOTES.Spell:FireServer(unpack(args))			
+			end
+		end
+	end
+end)
+Misc:Button("Fire Circle All",function()
+	local plr = game.Players.LocalPlayer
+	for i, Player in pairs (game.Players:GetPlayers()) do
+		if Player.Character ~= nil and Player ~= plr then
+			local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+			if mag < 999999 then
+				local Target = Player.Character or Player.CharacterAdded:Wait()
+				local args = {
+					[1] = "infernum",
+					[2] = Target.Head,
+					[3] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+					[4] = game:GetService("Players").LocalPlayer.Character.Humanoid,
+					[5] = Target.HumanoidRootPart.CFrame
+				}
+				game:GetService("ReplicatedStorage").REMOTES.Spell:FireServer(unpack(args))	
+			end
+		end
+	end
+end)
+Misc:Button("Delfan All",function()
+	local plr = game.Players.LocalPlayer
+	for i, Player in pairs (game.Players:GetPlayers()) do
+		if Player.Character ~= nil and Player ~= plr then
+			local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+			if mag < 999999 then
+				local Target = Player.Character or Player.CharacterAdded:Wait()
+				local args = {
+					[1] = "delfan",
+					[2] = Target.Head,
+					[3] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+					[4] = game:GetService("Players").LocalPlayer.Character.Humanoid,
+					[5] = Target.HumanoidRootPart.CFrame
+				}
+				
+				game:GetService("ReplicatedStorage").REMOTES.Spell:FireServer(unpack(args))	
+			end
+		end
+	end
+end)
+Misc:Button("Sleep All",function()
+	local plr = game.Players.LocalPlayer
+    for i, Player in pairs (game.Players:GetPlayers()) do
+        if Player.Character ~= nil and Player ~= plr then
+            local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+            if mag < 999999 then
+                local Target = Player.Character or Player.CharacterAdded:Wait()
+                local args = {
+                    [1] = "somnum",
+                    [2] = Target.Head,
+                    [3] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+                    [4] = game:GetService("Players").LocalPlayer.Character.Humanoid,
+                    [5] = Target.HumanoidRootPart.CFrame
+                }
+                game:GetService("ReplicatedStorage").REMOTES.Spell:FireServer(unpack(args))    
+            end
+        end
+    end
+end)
+Misc:Button("Ascendio All",function()
+	local plr = game.Players.LocalPlayer
+	for i, Player in pairs (game.Players:GetPlayers()) do
+		if Player.Character ~= nil and Player ~= plr then
+			local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+			if mag < 999999 then
+				local Target = Player.Character or Player.CharacterAdded:Wait()
+				local args = {
+					[1] = "ascendio",
+					[2] = Target.Head,
+					[3] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+					[4] = game:GetService("Players").LocalPlayer.Character.Humanoid,
+					[5] = Target.HumanoidRootPart.CFrame
+				}
+				
+				game:GetService("ReplicatedStorage").REMOTES.Spell:FireServer(unpack(args))
+				
+			end
+		end
+	end
+end)
+Misc:Button("Vine All",function()
+	local plr = game.Players.LocalPlayer
+	for i, Player in pairs (game.Players:GetPlayers()) do
+		if Player.Character ~= nil and Player ~= plr then
+			local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+			if mag < 999999 then
+				local Target = Player.Character or Player.CharacterAdded:Wait()
+				local args = {
+					[1] = "plant",
+					[2] = Target.Head,
+					[3] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+					[4] = game:GetService("Players").LocalPlayer.Character.Humanoid,
+					[5] = Target.HumanoidRootPart.CFrame
+				}
+				game:GetService("ReplicatedStorage").REMOTES.Spell:FireServer(unpack(args)) 
+			end
+		end
+	end
+end)
+Misc:Button("Errox Femus All",function()
+	local plr = game.Players.LocalPlayer
+	for i, Player in pairs (game.Players:GetPlayers()) do
+		if Player.Character ~= nil and Player ~= plr then
+			local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+			if mag < 999999 then
+				local Target = Player.Character or Player.CharacterAdded:Wait()
+				local args = {
+					[1] = "femus",
+					[2] = Target.Head,
+					[3] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+					[4] = game:GetService("Players").LocalPlayer.Character.Head
+				}
+				
+				game:GetService("ReplicatedStorage").REMOTES.Spell:FireServer(unpack(args))				 
+			end
+		end
+	end
+end)
+Misc:Button("Freeze All",function()
+	local plr = game.Players.LocalPlayer
+	for i, Player in pairs (game.Players:GetPlayers()) do
+		if Player.Character ~= nil and Player ~= plr then
+			local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+			if mag < 999999 then
+				local Target = Player.Character or Player.CharacterAdded:Wait()
+				local tpos = Target.HumanoidRootPart.CFrame
+				local args = {
+					[1] = "immobulus",
+					[2] = Target.Head,
+					[3] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+					[4] = game:GetService("Players").LocalPlayer.Character.Humanoid,
+					[5] = tpos
+				}
+				
+				game:GetService("ReplicatedStorage").REMOTES.Spell:FireServer(unpack(args))
+			end
+		end
+	end
+end)
+Misc:Button("Self Russeract",function()
+	local plr = game.Players.LocalPlayer
+
+	local args = {
+		[1] = "resurect",
+		[2] = workspace:FindFirstChild(plr.Name.." clone").Head,
+		[3] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+		[4] = game:GetService("Players").LocalPlayer.Character.Humanoid
+	}
+	for i=1,4 do
+	game:GetService("ReplicatedStorage").REMOTES.Spell:FireServer(unpack(args))
+	end
+
+end)
+Keys:Button("Errox Femus(R)",function()
+	local UserInputService = game:GetService("UserInputService")
+	local keybind = Enum.KeyCode.T
+	local function iskeybinddown()
+		return UserInputService:IsKeyDown(keybind)
+	end
+	local function Input(input, gameProcessedEvent)
+		local localplr = game.Players.LocalPlayer
+		local mouse = localplr:GetMouse()
+		if iskeybinddown() then
+			if mouse.Target and mouse.Target.Parent then
+				plr = game.Players:GetPlayerFromCharacter(mouse.Target.Parent)
+				if plr ~= nil then
+					local user = game.Players[plr.Name].Character
+					local args = {
+						[1] = "femus",
+						[2] = user.Head,
+						[3] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+						[4] = game:GetService("Players").LocalPlayer.Character.Head
+					}
+					
+					game:GetService("ReplicatedStorage").REMOTES.Spell:FireServer(unpack(args))	  
+					print(plr.Name)
+				end
+			end
+		end
+	end
+end)
+Keys:Button("Ressuraction(R)",function()
+	local UserInputService = game:GetService("UserInputService")
+	local keybind = Enum.KeyCode.R
+	local function iskeybinddown()
+		return UserInputService:IsKeyDown(keybind)
+	end
+	local function Input(input, gameProcessedEvent)
+		local localplr = game.Players.LocalPlayer
+		local mouse = localplr:GetMouse()
+		if iskeybinddown() then
+			if mouse.Target and mouse.Target.Parent then
+				plr = game.Players:GetPlayerFromCharacter(mouse.Target.Parent)
+				if plr ~= nil then
+					local user = game.Players[plr.Name].Character
+					local args = {
+						[1] = "resurect",
+						[2] = user.Head,
+						[3] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+						[4] = game:GetService("Players").LocalPlayer.Character.Head
+					}
+					
+					game:GetService("ReplicatedStorage").REMOTES.Spell:FireServer(unpack(args))	  
+					print(plr.Name)
+				end
+			end
+		end
+	end
+end)
+Keys:Button("Incendia(C)",function()
+	local UserInputService = game:GetService("UserInputService")
+	local keybind = Enum.KeyCode.C
+	local function iskeybinddown()
+		return UserInputService:IsKeyDown(keybind)
+	end
+	local function Input(input, gameProcessedEvent)
+		local localplr = game.Players.LocalPlayer
+		local mouse = localplr:GetMouse()
+		if iskeybinddown() then
+			if mouse.Target and mouse.Target.Parent then
+				plr = game.Players:GetPlayerFromCharacter(mouse.Target.Parent)
+				if plr ~= nil then
+					local user = game.Players[plr.Name].Character
+					local args = {
+						[1] = "incendia",
+						[2] = user.Head,
+						[3] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+						[4] = game:GetService("Players").LocalPlayer.Character.Head
+					}
+					
+					game:GetService("ReplicatedStorage").REMOTES.Spell:FireServer(unpack(args))	  
+					print(plr.Name)
+				end
+			end
+		end
+	end
+end)
+Teleport:Button("Faction Place",function()
+	cha.HumanoidRootPart.CFrame = CFrame.new(-307, 1, -213)
+end)
+Spells:Button("Ignis Ubique",function()
+	Notification:Notify(
+   {Title = "Ate", Description = "LMAOO THEY ARE ALL BURNING THEY WILL GO TO HELL"},
+   {OutlineColor = Color3.fromRGB(249, 233, 153),Time = 5, Type = "image"},
+   {Image = "http://www.roblox.com/asset/?id=6023426923", ImageColor = Color3.fromRGB(255, 84, 84)}
+	)
+    local Player = game.Players.LocalPlayer
+  	local Character = Player.Character
+  	local Debounce = true
+  	local db = true
+
+    Player.Chatted:Connect(function(chat)
+        local low = string.lower(chat)
+        if string.find(low, "ignis ubique") then
+    		local plr = game.Players.LocalPlayer
+    		for i, Player in pairs (game.Players:GetPlayers()) do
+    			if Player.Character ~= nil and Player ~= plr then
+    				local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+    				if mag < 999999 then
+    					local Target = Player.Character or Player.CharacterAdded:Wait()
+                        local args = {
+                            [1] = "incendia",
+                            [2] = Target.Head,
+                            [3] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+                            [4] = game:GetService("Players").LocalPlayer.Character.Head
+                        }
+                        
+                        game:GetService("ReplicatedStorage").REMOTES.Spell:FireServer(unpack(args))	    
+    				end
+    			end
+    		end     
+        end
+    end)
+end)
+Creds:Label("ate")
+Creds:Label("ate")
+
+library:Ready();
