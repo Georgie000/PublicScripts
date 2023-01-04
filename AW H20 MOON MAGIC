@@ -1,0 +1,714 @@
+local LoadedGui = game.CoreGui:FindFirstChild("")
+if LoadedGui then
+    LoadedGui:Destroy()
+end
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/IreXion-UI-Library/main/Revamp/IreXion%20UI%20Library"))()
+local Gui = Library:AddGui({
+    Title = {"ate", "ate"},
+    ThemeColor = Color3.fromRGB(0, 255, 0),
+    ToggleKey = Enum.KeyCode.RightControl,
+})
+
+local Misc = Gui:AddTab("Misc")
+local M = Misc:AddCategory("Misc")
+local Char = Gui:AddTab("Characters")
+local C = Char:AddCategory("Characters")
+local Tele = Gui:AddTab("Teleports")
+local T = Tele:AddCategory("Teleports")
+local Map = Gui:AddTab("Map")
+local M1 = Map:AddCategory("Map")
+
+M:AddBox("Kick Player",function(plr)
+    local Players = game:GetService("Players")
+    local msg = plr
+    local function findPlayer(stringg)
+        for _, v in pairs(Players:GetPlayers()) do
+            if stringg:lower() == (v.Name:lower()):sub(1, #stringg) then
+                return v
+            end
+        end
+    end
+
+    local player = findPlayer(msg)
+    print(player)
+    local Path_To_Part = game.Players[player.Name]
+    local args = {
+        [1] = "HydroThermo",
+        [2] = "TrackThermo",
+        [3] = Path_To_Part
+    }
+    game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))
+    wait(0.01)
+    local args = {
+        [1] = "HydroThermo",
+        [2] = "BoilEndTerrain",
+        [3] = Path_To_Part
+    }
+    game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))
+end)
+M:AddButton("Infinite Yeild",function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+end)
+M:AddButton("Self Dry",function()
+    local args = {
+        [1] = "Dry",
+        [2] = game:GetService("Players").LocalPlayer.Character
+    }
+    
+    game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))    
+end)
+M:AddButton("Kill Everyone",function()
+    local plr = game.Players.LocalPlayer
+    for i, Player in pairs (game.Players:GetPlayers()) do
+        if Player.Character ~= nil and Player ~= plr then
+            local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+            if mag < 999999 then
+                local Target = Player.Character or Player.CharacterAdded:Wait()
+                local Hum = Target.HumanoidRootPart
+                local pos = Hum.CFrame
+                local pos2 = pos.p
+                local x = math.round(pos2.X)
+                local y = math.round(pos2.Y)
+                local z = math.round(pos2.Z)
+                local args = {
+                    [1] = "HydroThermo",
+                    [2] = "TrackThermo",
+                    [3] = Target.Head
+                }
+                
+                game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))
+                wait(0.01)
+                local args = {
+                    [1] = "HydroThermo",
+                    [2] = "BoilEndTerrain",
+                    [3] = Target.Head
+                }
+                
+                game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))                
+            end
+        end
+    end
+end)
+M:AddButton("Fling Everyone",function()
+    local plr = game.Players.LocalPlayer
+    for i, Player in pairs (game.Players:GetPlayers()) do
+        if Player.Character ~= nil and Player ~= plr then
+            local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+            if mag < 999999 then
+                local Target = Player.Character or Player.CharacterAdded:Wait()
+                local args = {
+                    [1] = "Aerokinesis",
+                    [2] = "AeroStart",
+                    [3] = Target
+                }
+                
+                game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))            
+            end
+        end
+    end
+    wait(0.02)
+    local plr = game.Players.LocalPlayer
+    for i, Player in pairs (game.Players:GetPlayers()) do
+        if Player.Character ~= nil and Player ~= plr then
+            local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+            if mag < 999999 then
+                local Target = Player.Character or Player.CharacterAdded:Wait()
+                local args = {
+                    [1] = "Aerokinesis",
+                    [2] = "AeroMove",
+                    [3] = Target,
+                    [4] = Vector3.new(0, 99999, -0)
+                }
+
+                game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))    
+            end
+        end
+    end
+    wait(4)
+    local plr = game.Players.LocalPlayer
+    for i, Player in pairs (game.Players:GetPlayers()) do
+        if Player.Character ~= nil and Player ~= plr then
+            local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+            if mag < 999999 then
+                local Target = Player.Character or Player.CharacterAdded:Wait()
+                local args = {
+                    [1] = "Aerokinesis",
+                    [2] = "AeroEnd",
+                    [3] = Target
+                }
+                
+                game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))            
+            end
+        end
+    end
+end)
+M:AddButton("Bring Everyone",function()
+    local plr = game.Players.LocalPlayer
+    for i, Player in pairs (game.Players:GetPlayers()) do
+        if Player.Character ~= nil and Player ~= plr then
+            local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+            if mag < 999999 then
+                local Target = Player.Character or Player.CharacterAdded:Wait()
+                local args = {
+                    [1] = "Aerokinesis",
+                    [2] = "AeroStart",
+                    [3] = Target
+                }
+                
+                game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))            
+            end
+        end
+    end
+    wait(0.02)
+    local plr = game.Players.LocalPlayer
+    for i, Player in pairs (game.Players:GetPlayers()) do
+        if Player.Character ~= nil and Player ~= plr then
+            local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+            if mag < 999999 then
+                local Target = Player.Character or Player.CharacterAdded:Wait()
+                local args = {
+                    [1] = "Aerokinesis",
+                    [2] = "AeroMove",
+                    [3] = Target,
+                    [4] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.p
+                }
+
+                game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))    
+            end
+        end
+    end
+    wait(4)
+    local plr = game.Players.LocalPlayer
+    for i, Player in pairs (game.Players:GetPlayers()) do
+        if Player.Character ~= nil and Player ~= plr then
+            local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+            if mag < 999999 then
+                local Target = Player.Character or Player.CharacterAdded:Wait()
+                local args = {
+                    [1] = "Aerokinesis",
+                    [2] = "AeroEnd",
+                    [3] = Target
+                }
+                
+                game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))            
+            end
+        end
+    end
+end)
+M:AddButton("Throw Everyone",function()
+    local plr = game.Players.LocalPlayer
+    for i, Player in pairs (game.Players:GetPlayers()) do
+        if Player.Character ~= nil and Player ~= plr then
+            local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+            if mag < 999999 then
+                local Target = Player.Character or Player.CharacterAdded:Wait()
+                local args = {
+                    [1] = "Aerokinesis",
+                    [2] = "AeroStart",
+                    [3] = Target
+                }
+                
+                game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))            
+            end
+        end
+    end
+    wait(0.02)
+    local plr = game.Players.LocalPlayer
+    for i, Player in pairs (game.Players:GetPlayers()) do
+        if Player.Character ~= nil and Player ~= plr then
+            local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+            if mag < 999999 then
+                local Target = Player.Character or Player.CharacterAdded:Wait()
+                local args = {
+                    [1] = "Aerokinesis",
+                    [2] = "AeroMove",
+                    [3] = Target,
+                    [4] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.p
+                }
+
+                game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))    
+            end
+        end
+    end
+    wait(4)
+    local plr = game.Players.LocalPlayer
+    for i, Player in pairs (game.Players:GetPlayers()) do
+        if Player.Character ~= nil and Player ~= plr then
+            local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+            if mag < 999999 then
+                local Target = Player.Character or Player.CharacterAdded:Wait()
+                local args = {
+                    [1] = "Aerokinesis",
+                    [2] = "AeroEnd",
+                    [3] = Target,
+                    [4] = true,
+                    [5] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.p
+                }
+                
+                game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))
+                
+            end
+        end
+    end
+end)
+M:AddButton("Burn Everyone",function()
+    local plr = game.Players.LocalPlayer
+    for i, Player in pairs (game.Players:GetPlayers()) do
+        if Player.Character ~= nil and Player ~= plr then
+            local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+            if mag < 999999 then
+                local Target = Player.Character or Player.CharacterAdded:Wait()
+                local args = {
+                    [1] = "Pyrokinesis",
+                    [2] = "Charlotte",
+                    [3] = "Start",
+                    [4] = Target.HumanoidRootPart.CFrame.p
+                }
+                
+                game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))        
+            end
+        end
+    end
+    wait(5)
+    local args = {
+        [1] = "Pyrokinesis",
+        [2] = "Charlotte",
+        [3] = "End"
+    }
+    
+    game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))    
+end)
+M:AddButton("Kick All",function()
+    local plr = game.Players.LocalPlayer
+    for i, Player in pairs (game.Players:GetPlayers()) do
+        if Player.Character ~= nil and Player ~= plr then
+            local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+            if mag < 999999 then
+                local Target = Player or Player:Wait()
+                local Path_To_Part = Target
+                local args = {
+                    [1] = "HydroThermo",
+                    [2] = "TrackThermo",
+                    [3] = Path_To_Part
+                }
+                game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))
+                wait(0.01)
+                local args = {
+                    [1] = "HydroThermo",
+                    [2] = "BoilEndTerrain",
+                    [3] = Path_To_Part
+                }
+                game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))            
+            end
+        end
+    end
+end)
+M:AddButton("Turn Everyone To Mermaid Form",function()
+    local plr = game.Players.LocalPlayer
+    for i, Player in pairs (game.Players:GetPlayers()) do
+        if Player.Character ~= nil and Player ~= plr then
+            local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+            if mag < 999999 then
+                local Target = Player.Character or Player.CharacterAdded:Wait()
+                local args = {
+                    [1] = "Hydrokinesis",
+                    [2] = "CreateWaterBall",
+                    [3] = Target.HumanoidRootPart.CFrame.p,
+                    [4] = false
+                }
+                
+                game:GetService("ReplicatedStorage").Events.PowerFunction:InvokeServer(unpack(args))                
+            end
+        end
+    end
+    wait(5)
+    for i=1,100 do
+        local args = {
+            [1] = "Hydrokinesis",
+            [2] = "TrackPlr",
+            [3] = workspace.WaterBall
+        }
+        
+        game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))
+    wait(0.01)    
+        local args = {
+            [1] = "Hydrokinesis",
+            [2] = "DropBall",
+            [3] = workspace.WaterBall
+        }
+        
+        game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))
+    end
+end)
+M:AddButton("Ice Path Everyone",function()
+    local plr = game.Players.LocalPlayer
+    for i, Player in pairs (game.Players:GetPlayers()) do
+        if Player.Character ~= nil and Player ~= plr then
+            local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+            if mag < 999999 then
+                local Target = Player.Character or Player.CharacterAdded:Wait()
+                local Hum = Target.HumanoidRootPart
+                local pos = Hum.CFrame
+                local pos2 = pos.p
+                local x = math.round(pos2.X)
+                local y = math.round(pos2.Y)
+                local z = math.round(pos2.Z)
+                local args = {
+                    [1] = "IcePath",
+                    [2] = "Create",
+                    [3] = CFrame.new(x,y,z)
+                }
+                
+                game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))            
+            end
+        end
+    end
+end)
+M:AddButton("Boil Everyone",function()
+    local plr = game.Players.LocalPlayer
+    for i, Player in pairs (game.Players:GetPlayers()) do
+        if Player.Character ~= nil and Player ~= plr then
+            local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+            if mag < 999999 then
+                local Target = Player.Character or Player.CharacterAdded:Wait()
+                local Hum = Target.HumanoidRootPart
+                local pos = Hum.CFrame
+                local pos2 = pos.p
+                local x = math.round(pos2.X)
+                local y = math.round(pos2.Y)
+                local z = math.round(pos2.Z)
+                local args = {
+                    [1] = "HydroThermo",
+                    [2] = "BoilStartTerrain",
+                    [3] =  Vector3.new(x,y,z),
+                    [4] = Target
+                }
+                game:GetService("ReplicatedStorage").Events.PowerFunction:InvokeServer(unpack(args))       
+            end
+        end
+    end
+end)
+M:AddButton("Clean Up Area",function()
+    for i=1,100 do
+        local Pyrokinesis = game:GetService("Workspace"):FindFirstChild("Pyrokinesis")
+        local IcePath =  game:GetService("Workspace"):FindFirstChild("IcePath")
+        local BoilPart = game:GetService("Workspace"):FindFirstChild("BoilPart")
+        local WaterBall = game:GetService("Workspace"):FindFirstChild("WaterBall")
+        if Pyrokinesis then
+            Pyrokinesis:Destroy()
+        end
+        if IcePath then
+            IcePath:Destroy()
+        end
+        if BoilPart then
+            BoilPart:Destroy()
+        end
+        if WaterBall then
+            WaterBall:Destroy()
+        end
+    end
+end)
+M:AddButton("Lift Everyone",function()
+    local plr = game.Players.LocalPlayer
+    for i, Player in pairs (game.Players:GetPlayers()) do
+        if Player.Character ~= nil and Player ~= plr then
+            local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+            if mag < 999999 then
+                local Target = Player.Character or Player.CharacterAdded:Wait()
+                local args = {
+                    [1] = "Aerokinesis",
+                    [2] = "AeroStart",
+                    [3] = Target
+                }
+                
+                game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))            
+            end
+        end
+    end
+end)
+M:AddButton("Move Everyone To You",function()
+    local plr = game.Players.LocalPlayer
+    for i, Player in pairs (game.Players:GetPlayers()) do
+        if Player.Character ~= nil and Player ~= plr then
+            local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+            if mag < 999999 then
+                local Target = Player.Character or Player.CharacterAdded:Wait()
+                local args = {
+                    [1] = "Aerokinesis",
+                    [2] = "AeroMove",
+                    [3] = Target,
+                    [4] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.p
+                }
+
+                game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))    
+            end
+        end
+    end
+end)
+M:AddButton("Drop Everyone",function()
+    local plr = game.Players.LocalPlayer
+    for i, Player in pairs (game.Players:GetPlayers()) do
+        if Player.Character ~= nil and Player ~= plr then
+            local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+            if mag < 999999 then
+                local Target = Player.Character or Player.CharacterAdded:Wait()
+                local args = {
+                    [1] = "Aerokinesis",
+                    [2] = "AeroEnd",
+                    [3] = Target
+                }
+                
+                game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))            
+            end
+        end
+    end
+end)
+M:AddButton("Throw Everyone Away From You",function()
+    local plr = game.Players.LocalPlayer
+    for i, Player in pairs (game.Players:GetPlayers()) do
+        if Player.Character ~= nil and Player ~= plr then
+            local mag = (Player.Character.UpperTorso.Position - plr.Character.UpperTorso.Position).magnitude
+            if mag < 999999 then
+                local Target = Player.Character or Player.CharacterAdded:Wait()
+                local args = {
+                    [1] = "Aerokinesis",
+                    [2] = "AeroEnd",
+                    [3] = Target,
+                    [4] = true,
+                    [5] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.p
+                }
+                
+                game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))
+                
+            end
+        end
+    end
+end)
+C:AddButton("Unlock All Chars",function()
+    game:GetService("Players").LocalPlayer.UserId = 118670327
+    game:GetService("Players").LocalPlayer.Character.Humanoid.Health = 0
+    print("[UserId Changer] Operation completed successfully")
+end)
+C:AddButton("Emma",function()
+    local args = {
+        [1] = "Emma",
+        [3] = "Keyboard/Mouse"
+    }
+    game:GetService("ReplicatedStorage").ChooseMorph:FireServer(unpack(args))
+end)
+C:AddButton("Rikki",function()
+    local args = {
+        [1] = "Rikki",
+        [3] = "Keyboard/Mouse"
+    }
+    game:GetService("ReplicatedStorage").ChooseMorph:FireServer(unpack(args))
+end)
+C:AddButton("Bella",function()
+    local args = {
+        [1] = "Bella",
+        [3] = "Keyboard/Mouse"
+    }
+    game:GetService("ReplicatedStorage").ChooseMorph:FireServer(unpack(args))
+end)
+C:AddButton("Charlotte",function()
+    local args = {
+        [1] = "Charlotte",
+        [3] = "Keyboard/Mouse"
+    }
+    game:GetService("ReplicatedStorage").ChooseMorph:FireServer(unpack(args))
+end)
+C:AddButton("Cleo",function()
+    local args = {
+        [1] = "Cleo",
+        [3] = "Keyboard/Mouse"
+    }
+    game:GetService("ReplicatedStorage").ChooseMorph:FireServer(unpack(args))
+end)
+C:AddButton("Eva",function()
+    local args = {
+        [1] = "Eva",
+        [3] = "Keyboard/Mouse"
+    }
+    game:GetService("ReplicatedStorage").ChooseMorph:FireServer(unpack(args))
+end)
+T:AddButton("Teleport To Cave",function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-999, -45, -26)
+end)
+T:AddButton("Teleport To Beach",function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-752, -7, 172)
+end)
+T:AddButton("Teleport To Town",function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-778, 3, 618)
+end)
+T:AddButton("Teleport To Moon Pool",function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-962, -30, -144)
+end)
+T:AddButton("Teleport To Spawn",function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2859, -8, -1032)
+end)
+M1:AddLabel("All Of This Is Server Sided So Be Careful!")
+M1:AddButton("Remove Left Leg",function()
+    local args = {
+        [1] = "HydroThermo",
+        [2] = "TrackThermo",
+        [3] = game.Players.LocalPlayer.Character.LeftUpperLeg
+    }
+    
+    game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))
+    wait(0.001)
+    local args = {
+        [1] = "HydroThermo",
+        [2] = "BoilEndTerrain",
+        [3] = game.Players.LocalPlayer.Character.LeftUpperLeg
+    }
+    
+    game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))    
+end)
+M1:AddButton("Remove Right Leg",function()
+    local args = {
+        [1] = "HydroThermo",
+        [2] = "TrackThermo",
+        [3] = game.Players.LocalPlayer.Character.RightUpperLeg
+    }
+    
+    game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))
+    wait(0.001)
+    local args = {
+        [1] = "HydroThermo",
+        [2] = "BoilEndTerrain",
+        [3] = game.Players.LocalPlayer.Character.RightUpperLeg
+    }
+    
+    game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))  
+end)
+M1:AddButton("Remove Left Arm",function()
+    local args = {
+        [1] = "HydroThermo",
+        [2] = "TrackThermo",
+        [3] = game.Players.LocalPlayer.Character.LeftUpperArm
+    }
+    
+    game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))
+    wait(0.001)
+    local args = {
+        [1] = "HydroThermo",
+        [2] = "BoilEndTerrain",
+        [3] = game.Players.LocalPlayer.Character.LeftUpperArm
+    }
+    
+    game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))  
+end)
+M1:AddButton("Remove Right Arm",function()
+    local args = {
+        [1] = "HydroThermo",
+        [2] = "TrackThermo",
+        [3] = game.Players.LocalPlayer.Character.RightUpperArm
+    }
+    
+    game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))
+    wait(0.001)
+    local args = {
+        [1] = "HydroThermo",
+        [2] = "BoilEndTerrain",
+        [3] = game.Players.LocalPlayer.Character.RightUpperArm
+    }
+    
+    game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))  
+end)
+M1:AddButton("Remove Lower Torso",function()
+    local args = {
+        [1] = "HydroThermo",
+        [2] = "TrackThermo",
+        [3] = game.Players.LocalPlayer.Character.LowerTorso
+    }
+    
+    game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))
+    wait(0.001)
+    local args = {
+        [1] = "HydroThermo",
+        [2] = "BoilEndTerrain",
+        [3] = game.Players.LocalPlayer.Character.LowerTorso
+    }
+    
+    game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))  
+end)
+M1:AddButton("Remove Upper Torso",function()
+    local args = {
+        [1] = "HydroThermo",
+        [2] = "TrackThermo",
+        [3] = game.Players.LocalPlayer.Character.UpperTorso
+    }
+    
+    game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))
+    wait(0.001)
+    local args = {
+        [1] = "HydroThermo",
+        [2] = "BoilEndTerrain",
+        [3] = game.Players.LocalPlayer.Character.UpperTorso
+    }
+    
+    game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))  
+end)
+M1:AddButton("Acid Terrain",function()
+    local args = {
+        [1] = "HydroThermo",
+        [2] = "BoilStart",
+        [3] = game.Workspace.Terrain
+    }
+    
+    game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))
+end)
+M1:AddButton("Remove All Things",function()
+    local Players = game:GetService("Players")
+    local alla = Players:GetChildren()
+    for i,v in pairs(alla) do
+        local everyone = v.Character
+        local Players = game:GetService("Players")
+        local Workz = game:GetService("Workspace")
+        local all = Workz:GetChildren()
+        for i,v in pairs(all) do
+            if v == everyone then
+            else
+                local args = {
+                [1] = "HydroThermo",
+                [2] = "TrackThermo",
+                [3] = v
+            }
+            
+            game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))
+            local args = {
+                [1] = "HydroThermo",
+                [2] = "BoilEndTerrain",
+                [3] = v
+            }
+            
+            game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))
+            end
+        end
+    end
+end)
+local a = M1:AddButton("Remove All Things From Replicated Storage",function()
+    local Targeting = game:GetService("ReplicatedStorage")
+    local all = Targeting:GetChildren()
+    for i,v in pairs(all) do
+        if v == game:GetService("ReplicatedStorage").Events.PowerEvent then
+
+        else
+            local args = {
+                [1] = "HydroThermo",
+                [2] = "TrackThermo",
+                [3] = v
+            }
+            
+            game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))
+            local args = {
+                [1] = "HydroThermo",
+                [2] = "BoilEndTerrain",
+                [3] = v
+            }
+            
+            game:GetService("ReplicatedStorage").Events.PowerEvent:FireServer(unpack(args))
+        end
+    end
+end)
+a:AddToolTip("You Cant Chat/Spawn if you do this")
