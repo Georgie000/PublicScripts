@@ -1,2 +1,0 @@
-local button = game:GetService("CoreGui"):WaitForChild("RobloxGui"):WaitForChild("ResetButton")
-button.Visible = true
